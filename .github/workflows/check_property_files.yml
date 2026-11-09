@@ -1,9 +1,10 @@
 name: "Properties Check"
-on:
-    pull_request:
-        paths:
-            - "src/**/*.properties"
-            - "scripts/api/data/metadatablocks/*"
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     pull_request:
+#         paths:
+#             - "src/**/*.properties"
+#             - "scripts/api/data/metadatablocks/*"
 jobs:
     duplicate_keys:
         name: Duplicate Keys

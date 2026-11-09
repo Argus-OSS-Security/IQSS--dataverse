@@ -1,32 +1,33 @@
 ---
 name: Container Images Scheduled Maintenance
 
-on:
-  # TODO: think about adding a (filtered) push event trigger here in case we change the patches
-  # ---
-  # Allow manual workflow triggers in case we need to repair images on Docker Hub (build and replace)
-  workflow_dispatch:
-    inputs:
-      force_build:
-        type: boolean
-        required: false
-        default: false
-        description: "Build and deploy even if no newer Java images or package updates are found."
-      dry_run:
-        type: boolean
-        required: false
-        default: false
-        description: "Run in dry-run mode (no builds, verify logic)"
-      damp_run:
-        type: boolean
-        required: false
-        default: false
-        description: "Run in damp-run mode (build but don't push)"
-  schedule:
-    - cron: '23 3 * * 0' # Run for 'develop' every Sunday at 03:23 UTC
-  release:
-    types: [published]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   # TODO: think about adding a (filtered) push event trigger here in case we change the patches
+#   # ---
+#   # Allow manual workflow triggers in case we need to repair images on Docker Hub (build and replace)
+#   workflow_dispatch:
+#     inputs:
+#       force_build:
+#         type: boolean
+#         required: false
+#         default: false
+#         description: "Build and deploy even if no newer Java images or package updates are found."
+#       dry_run:
+#         type: boolean
+#         required: false
+#         default: false
+#         description: "Run in dry-run mode (no builds, verify logic)"
+#       damp_run:
+#         type: boolean
+#         required: false
+#         default: false
+#         description: "Run in damp-run mode (build but don't push)"
+#   schedule:
+#     - cron: '23 3 * * 0' # Run for 'develop' every Sunday at 03:23 UTC
+#   release:
+#     types: [published]
+# 
 env:
   PLATFORMS: linux/amd64,linux/arm64
   NUM_PAST_RELEASES: 3

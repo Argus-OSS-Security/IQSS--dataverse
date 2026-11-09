@@ -1,25 +1,26 @@
 ---
 name: Application Container Image
 
-on:
-    # We are deliberately *not* running on push events here to avoid double runs.
-    # Instead, push events will trigger from the base image and maven unit tests via workflow_call.
-    workflow_call:
-        inputs:
-            base-image-ref:
-                type: string
-                description: "Reference of the base image to build on in full qualified form [<registry>/]<namespace>/<repo>:<tag>"
-                required: false
-                default: "gdcc/base:unstable"
-    pull_request:
-        branches:
-            - develop
-            - master
-        paths:
-            - 'src/main/docker/**'
-            - 'modules/container-configbaker/**'
-            - '.github/workflows/container_app_push.yml'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     # We are deliberately *not* running on push events here to avoid double runs.
+#     # Instead, push events will trigger from the base image and maven unit tests via workflow_call.
+#     workflow_call:
+#         inputs:
+#             base-image-ref:
+#                 type: string
+#                 description: "Reference of the base image to build on in full qualified form [<registry>/]<namespace>/<repo>:<tag>"
+#                 required: false
+#                 default: "gdcc/base:unstable"
+#     pull_request:
+#         branches:
+#             - develop
+#             - master
+#         paths:
+#             - 'src/main/docker/**'
+#             - 'modules/container-configbaker/**'
+#             - '.github/workflows/container_app_push.yml'
+# 
 env:
     IMAGE_TAG: unstable
     REGISTRY: "" # Empty means default to Docker Hub

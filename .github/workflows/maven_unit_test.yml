@@ -1,28 +1,29 @@
 name: Maven Tests
 
-on:
-    push:
-        # Only run for development and feature branches. Don't waste CPU cycles testing
-        # master when the PR to update it from develop already ran these tests.
-        branches:
-            - '*'
-            - '!master'
-        paths:
-            - "**.java"
-            - "**.sql"
-            - "pom.xml"
-            - "modules/**/pom.xml"
-            - "!modules/container-base/**"
-            - "!modules/dataverse-spi/**"
-    pull_request:
-        paths:
-            - "**.java"
-            - "**.sql"
-            - "pom.xml"
-            - "modules/**/pom.xml"
-            - "!modules/container-base/**"
-            - "!modules/dataverse-spi/**"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     push:
+#         # Only run for development and feature branches. Don't waste CPU cycles testing
+#         # master when the PR to update it from develop already ran these tests.
+#         branches:
+#             - '*'
+#             - '!master'
+#         paths:
+#             - "**.java"
+#             - "**.sql"
+#             - "pom.xml"
+#             - "modules/**/pom.xml"
+#             - "!modules/container-base/**"
+#             - "!modules/dataverse-spi/**"
+#     pull_request:
+#         paths:
+#             - "**.java"
+#             - "**.sql"
+#             - "pom.xml"
+#             - "modules/**/pom.xml"
+#             - "!modules/container-base/**"
+#             - "!modules/dataverse-spi/**"
+# 
 jobs:
     unittest:
         name: (${{ matrix.status}} / JDK ${{ matrix.jdk }}) Unit Tests

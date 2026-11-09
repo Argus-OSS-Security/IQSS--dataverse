@@ -1,9 +1,10 @@
 name: Maven CheckStyle Task
-on:
-   pull_request:
-       paths:
-           - "**.java"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#    pull_request:
+#        paths:
+#            - "**.java"
+# 
 jobs:
     checkstyle_job:
         runs-on: ubuntu-latest

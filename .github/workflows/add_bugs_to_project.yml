@@ -1,11 +1,12 @@
 name: Add bugs to project board
 
-on:
-  issues:
-    types:
-      - opened
-      - labeled
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   issues:
+#     types:
+#       - opened
+#       - labeled
+# 
 jobs:
   add-to-project:
     name: Add bug to project

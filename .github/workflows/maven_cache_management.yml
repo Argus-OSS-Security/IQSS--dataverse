@@ -1,21 +1,22 @@
 name: Maven Cache Management
 
-on:
-    # Every push to develop should trigger cache rejuvenation (dependencies might have changed)
-    push:
-        branches:
-            - develop
-    # According to https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy
-    # all caches are deleted after 7 days of no access. Make sure we rejuvenate every 7 days to keep it available.
-    schedule:
-        - cron: '23 2 * * 0' # Run for 'develop' every Sunday at 02:23 UTC (3:23 CET, 21:23 ET)
-    # Enable manual cache management
-    workflow_dispatch:
-    # Delete branch caches once a PR is merged
-    pull_request:
-        types:
-            - closed
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     # Every push to develop should trigger cache rejuvenation (dependencies might have changed)
+#     push:
+#         branches:
+#             - develop
+#     # According to https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy
+#     # all caches are deleted after 7 days of no access. Make sure we rejuvenate every 7 days to keep it available.
+#     schedule:
+#         - cron: '23 2 * * 0' # Run for 'develop' every Sunday at 02:23 UTC (3:23 CET, 21:23 ET)
+#     # Enable manual cache management
+#     workflow_dispatch:
+#     # Delete branch caches once a PR is merged
+#     pull_request:
+#         types:
+#             - closed
+# 
 env:
     COMMON_CACHE_KEY: "dataverse-maven-cache"
     COMMON_CACHE_PATH: "~/.m2/repository"

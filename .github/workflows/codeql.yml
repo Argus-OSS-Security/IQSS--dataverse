@@ -11,14 +11,15 @@
 #
 name: "CodeQL Advanced"
 
-on:
-  push:
-    branches: [ "develop", "master" ]
-  pull_request:
-    branches: [ "develop", "master" ]
-  schedule:
-    - cron: '30 6 * * 4'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [ "develop", "master" ]
+#   pull_request:
+#     branches: [ "develop", "master" ]
+#   schedule:
+#     - cron: '30 6 * * 4'
+# 
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})

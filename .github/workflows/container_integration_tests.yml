@@ -1,26 +1,27 @@
 name: Container Integration Tests Workflow
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - develop
-      - master
-    paths-ignore:
-      - "doc/**"
-      - "**/*.md"
-      - ".github/ISSUE_TEMPLATE/**"
-      - ".github/*.md"
-  pull_request:
-    branches:
-      - develop
-      - master
-    paths-ignore:
-      - "doc/**"
-      - "**/*.md"
-      - ".github/ISSUE_TEMPLATE/**"
-      - ".github/*.md"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - develop
+#       - master
+#     paths-ignore:
+#       - "doc/**"
+#       - "**/*.md"
+#       - ".github/ISSUE_TEMPLATE/**"
+#       - ".github/*.md"
+#   pull_request:
+#     branches:
+#       - develop
+#       - master
+#     paths-ignore:
+#       - "doc/**"
+#       - "**/*.md"
+#       - ".github/ISSUE_TEMPLATE/**"
+#       - ".github/*.md"
+# 
 concurrency:
   group: "container-integration-tests-${{ github.ref }}"
   cancel-in-progress: true

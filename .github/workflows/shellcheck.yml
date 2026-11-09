@@ -1,19 +1,20 @@
 name: "Shellcheck"
-on:
-    push:
-        branches:
-            - develop
-        paths:
-            - conf/solr/**/.sh
-            - modules/container-base/**/*.sh
-            - modules/container-configbaker/**/*.sh
-    pull_request:
-        branches:
-            - develop
-        paths:
-            - conf/solr/**/*.sh
-            - modules/container-base/**/*.sh
-            - modules/container-configbaker/**/*.sh
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     push:
+#         branches:
+#             - develop
+#         paths:
+#             - conf/solr/**/.sh
+#             - modules/container-base/**/*.sh
+#             - modules/container-configbaker/**/*.sh
+#     pull_request:
+#         branches:
+#             - develop
+#         paths:
+#             - conf/solr/**/*.sh
+#             - modules/container-base/**/*.sh
+#             - modules/container-configbaker/**/*.sh
 jobs:
     shellcheck:
         name: Shellcheck

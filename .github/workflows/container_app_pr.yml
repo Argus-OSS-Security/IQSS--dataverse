@@ -3,12 +3,13 @@ name: Preview Application Container Image
 
 # TODO: merge this workflow into the existing container_app_push.yaml flow - there's not much difference!
 
-on:
-    # We only run the push commands if we are asked to by an issue comment with the correct command.
-    # This workflow is always taken from the default branch and runs in repo context with access to secrets.
-    repository_dispatch:
-        types: [ push-image-command ]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     # We only run the push commands if we are asked to by an issue comment with the correct command.
+#     # This workflow is always taken from the default branch and runs in repo context with access to secrets.
+#     repository_dispatch:
+#         types: [ push-image-command ]
+# 
 env:
     PLATFORMS: "linux/amd64,linux/arm64"
 

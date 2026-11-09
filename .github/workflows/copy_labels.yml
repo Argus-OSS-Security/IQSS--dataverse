@@ -1,9 +1,10 @@
 name: Copy labels from issue to pull request
 
-on:
-  pull_request:
-    types: [opened]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [opened]
+# 
 jobs:
   copy-labels:
     # Avoid being triggered by forks
